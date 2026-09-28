@@ -1,18 +1,18 @@
-import { EngagementModels } from "@/components/EngagementModels";
-import { TechStack } from "@/components/TechStack";
+import { CaseStudies } from "@/components/CaseStudies";
 import { ContactForm } from "@/components/ContactForm";
+import { EngagementModels } from "@/components/EngagementModels";
 import { Footer } from "@/components/Footer";
-import Link from "next/link";
+import { TechStack } from "@/components/TechStack";
 import { siteConfig } from "@/config/site";
 import {
   ArrowRight,
+  Layers,
+  RefreshCw,
+  Server,
   ShieldCheck,
   Zap,
-  RefreshCw,
-  Cpu,
-  Layers,
-  Server,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -276,6 +276,9 @@ export default function HomePage() {
 
       {/* 6. TECH STACK & SEGURANÇA */}
       <TechStack />
+
+      {/* NOVO: CASES DE SUCESSO (STAR) */}
+      <CaseStudies />
 
       {/* 7. FORMULÁRIO DE QUALIFICAÇÃO */}
       <ContactForm />
