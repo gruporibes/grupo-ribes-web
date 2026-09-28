@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 
 export function ContactForm() {
-  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectType: "Build from scratch",
     stage: "Idea / Concept",
@@ -15,15 +14,13 @@ export function ContactForm() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    // Como combinamos no escopo: sem banco de dados complexo!
-    // Podemos abrir o cliente de email ou acionar uma API route serverless.
     const subject = encodeURIComponent(
-      `Novo Lead Grupo Ribes: ${formData.projectType} - ${formData.name}`,
+      `Diagnóstico Técnico: ${formData.projectType} - ${formData.name}`,
     );
     const body = encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\nTipo: ${formData.projectType}\nEstágio: ${formData.stage}\nBudget Estimado: ${formData.budget}\n\nResumo:\n${formData.summary}`,
+      `Nome: ${formData.name}\nEmail: ${formData.email}\nDemanda: ${formData.projectType}\nEstágio: ${formData.stage}\nOrçamento Estimado: ${formData.budget}\n\nResumo:\n${formData.summary}`,
     );
     window.location.href = `mailto:contato@gruporibes.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
@@ -35,7 +32,7 @@ export function ContactForm() {
       className="py-24 px-6 max-w-4xl mx-auto border-t border-zinc-800/80"
     >
       <div className="text-center mb-12">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-emerald-400">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-brand">
           Inicie sua Operação
         </h2>
         <p className="mt-3 text-3xl font-bold text-white">
@@ -50,7 +47,7 @@ export function ContactForm() {
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 md:p-10 backdrop-blur-sm">
         {submitted ? (
           <div className="text-center py-12">
-            <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
+            <CheckCircle className="w-12 h-12 text-brand mx-auto mb-4" />
             <h3 className="text-xl font-bold text-white">
               Mensagem preparada com sucesso!
             </h3>
@@ -80,7 +77,7 @@ export function ContactForm() {
                     }
                     className={`py-3 px-4 rounded-lg text-xs font-medium border text-center transition ${
                       formData.projectType === type
-                        ? "border-emerald-400 bg-emerald-500/10 text-emerald-300 font-semibold"
+                        ? "border-brand bg-brand-muted text-brand font-semibold"
                         : "border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700"
                     }`}
                   >
@@ -107,7 +104,7 @@ export function ContactForm() {
                     onClick={() => setFormData({ ...formData, stage })}
                     className={`py-3 px-4 rounded-lg text-xs font-medium border text-center transition ${
                       formData.stage === stage
-                        ? "border-emerald-400 bg-emerald-500/10 text-emerald-300 font-semibold"
+                        ? "border-brand bg-brand-muted text-brand font-semibold"
                         : "border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700"
                     }`}
                   >
@@ -130,7 +127,7 @@ export function ContactForm() {
                     onClick={() => setFormData({ ...formData, budget: b })}
                     className={`py-3 px-4 rounded-lg text-xs font-medium border text-center transition ${
                       formData.budget === b
-                        ? "border-emerald-400 bg-emerald-500/10 text-emerald-300 font-semibold"
+                        ? "border-brand bg-brand-muted text-brand font-semibold"
                         : "border-zinc-800 bg-zinc-950/60 text-zinc-400 hover:border-zinc-700"
                     }`}
                   >
@@ -154,7 +151,7 @@ export function ContactForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-400"
+                  className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-brand"
                 />
                 <input
                   type="email"
@@ -164,7 +161,7 @@ export function ContactForm() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-400"
+                  className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-brand"
                 />
               </div>
               <textarea
@@ -175,13 +172,13 @@ export function ContactForm() {
                 onChange={(e) =>
                   setFormData({ ...formData, summary: e.target.value })
                 }
-                className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-emerald-400"
+                className="w-full px-4 py-3 rounded-lg bg-zinc-950 border border-zinc-800 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-brand"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-bold text-sm transition flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(52,211,153,0.3)]"
+              className="w-full py-4 rounded-lg bg-brand hover:bg-brand-hover text-zinc-950 font-bold text-sm transition flex items-center justify-center gap-2 glow-brand"
             >
               <span>Enviar Diagnóstico</span>
               <Send className="w-4 h-4" />

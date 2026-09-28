@@ -53,7 +53,7 @@ export function TechStack() {
       className="py-24 px-6 max-w-7xl mx-auto border-t border-zinc-800/80"
     >
       <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-emerald-400">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-brand">
           Infraestrutura & Segurança
         </h2>
         <p className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-white">
@@ -71,10 +71,10 @@ export function TechStack() {
           return (
             <div
               key={group.category}
-              className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-8 flex flex-col justify-between"
+              className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-8 flex flex-col justify-between hover:border-brand-border transition"
             >
               <div>
-                <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-emerald-400 mb-6">
+                <div className="w-10 h-10 rounded-lg bg-brand-muted border border-brand-border flex items-center justify-center text-brand mb-6">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">
@@ -91,7 +91,7 @@ export function TechStack() {
                     key={tech}
                     className="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded bg-zinc-800/80 text-zinc-200 border border-zinc-700/60 font-mono"
                   >
-                    <Check className="w-3 h-3 text-emerald-400" />
+                    <Check className="w-3 h-3 text-brand" />
                     {tech}
                   </span>
                 ))}

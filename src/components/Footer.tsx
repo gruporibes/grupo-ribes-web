@@ -1,38 +1,39 @@
-import { Terminal } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800/80 bg-zinc-950 text-zinc-400 py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2.5 font-bold tracking-tight text-white">
-          <div className="p-1 rounded bg-zinc-900 border border-zinc-800">
-            <Terminal className="w-4 h-4 text-emerald-400" />
-          </div>
-          <span className="text-sm">
-            GRUPO <span className="text-zinc-400 font-light">RIBES</span>
-          </span>
-        </div>
+    <footer className="border-t border-zinc-800/80 bg-zinc-950 text-zinc-400 py-14 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+        <Link href="/" className="inline-block">
+          <Image
+            src="/logo.svg"
+            alt="Grupo Ribes"
+            width={140}
+            height={51}
+            className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition"
+          />
+        </Link>
 
-        <div className="flex items-center gap-6 text-xs">
-          <Link href="#services" className="hover:text-white transition">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-wider font-mono text-zinc-400">
+          <Link href="#services" className="hover:text-brand transition">
             Pilares
           </Link>
-          <Link href="#solutions" className="hover:text-white transition">
+          <Link href="#solutions" className="hover:text-brand transition">
             Soluções
           </Link>
-          <Link href="#models" className="hover:text-white transition">
+          <Link href="#models" className="hover:text-brand transition">
             Modelos
           </Link>
-          <Link href="#tech" className="hover:text-white transition">
+          <Link href="#tech" className="hover:text-brand transition">
             Stack
           </Link>
-          <Link href="#contact" className="hover:text-white transition">
+          <Link href="#contact" className="hover:text-brand transition">
             Contato
           </Link>
         </div>
 
-        <p className="text-xs text-zinc-500">
+        <p className="text-xs text-zinc-400 font-mono">
           &copy; {new Date().getFullYear()} Grupo Ribes. Long-term technical
           growth engine.
         </p>
