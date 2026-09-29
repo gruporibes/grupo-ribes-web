@@ -74,7 +74,7 @@ export function ContactForm() {
     }
 
     // Validação básica de formato de e-mail corporativo
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
     if (!formData.email.trim()) {
       newErrors.email = "Preencha seu e-mail corporativo.";
     } else if (!emailRegex.test(formData.email)) {

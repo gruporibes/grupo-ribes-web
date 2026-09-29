@@ -23,19 +23,11 @@ export default function HomePage() {
 
       {/* 1. HERO SECTION */}
       <section className="relative pt-24 pb-20 md:pt-36 md:pb-28 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-border bg-zinc-900/80 text-xs text-zinc-300 mb-8 backdrop-blur-sm shadow-inner">
-          <span className="flex h-2 w-2 rounded-full bg-brand animate-pulse" />
-          <span className="font-mono text-[11px] tracking-wide uppercase text-zinc-300">
-            Long-Term Technical Growth Engine
-          </span>
-        </div>
-
         {/* Headline com gradiente semântico da marca */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-5xl leading-[1.1]">
-          Custom Software Development, 24/7 Support &{" "}
+          Desenvolvimento de Software Sob Medida do Zero, Suporte 24/7 e{" "}
           <span className="text-transparent bg-clip-text bg-linear-to-r from-brand via-brand-hover to-brand-dark">
-            Continuous Evolution.
+            Evolução de Sistemas Legado.
           </span>
         </h1>
 
@@ -97,11 +89,11 @@ export default function HomePage() {
               <Layers className="w-6 h-6" />
             </div>
             <span className="text-xs font-mono uppercase tracking-wider text-brand">
-              01. Pilar A
+              Pilar A
             </span>
             <h3 className="text-2xl font-bold text-white mt-1 mb-2">BUILD</h3>
             <p className="text-sm font-medium text-zinc-400 mb-4">
-              0-to-1 Product Development
+              Desenvolvimento do Zero
             </p>
             <p className="text-sm text-zinc-400 leading-relaxed mb-6">
               Arquitetura, design e engenharia de aplicações web escaláveis,

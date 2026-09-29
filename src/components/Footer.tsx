@@ -17,7 +17,7 @@ export function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-wider font-mono text-zinc-400">
           <Link href="#services" className="hover:text-brand transition">
-            Pilares
+            Serviços
           </Link>
           <Link href="#solutions" className="hover:text-brand transition">
             Soluções

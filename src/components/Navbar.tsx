@@ -37,7 +37,7 @@ export function Navbar() {
             href="#contact"
             className="px-5 py-2.5 text-xs font-bold text-zinc-950 bg-brand hover:bg-brand-hover transition-all rounded-md glow-brand"
           >
-            Solicitar Diagnóstico
+            Solicitar um Orçamento
           </Link>
         </div>
       </div>

@@ -1,16 +1,16 @@
 export const siteConfig = {
   name: "Grupo Ribes",
   description:
-    "Custom Software Development, 24/7 Support & Continuous Product Evolution.",
+    "Desenvolvimento de Software Sob Medida do Zero, Suporte 24/7 e Evolução de Sistemas Legado.",
   navItems: [
-    { label: "Pilares", href: "#services" },
+    { label: "Serviços", href: "#services" },
     { label: "Público & Soluções", href: "#solutions" },
     { label: "Modelos", href: "#models" },
     { label: "Stack & Segurança", href: "#tech" },
   ],
   hero: {
     headline:
-      "Custom Software Development, 24/7 Support & Continuous Product Evolution",
+      "Desenvolvimento de Software Sob Medida do Zero, Suporte 24/7 e Evolução de Sistemas Legado.",
     subheadline:
       "Ajudamos startups a transformar ideias em aplicações de nível corporativo e capacitamos empresas consolidadas com engenharia dedicada e suporte contínuo.",
     ctaPrimary: "Agendar Auditoria Técnica Gratuita",
