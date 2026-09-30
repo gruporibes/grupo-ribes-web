@@ -1,54 +1,73 @@
+// 1. Headline dividida para permitir o destaque visual sem duplicar texto
+const headlinePrefix = "Desenvolvimento de Software Sob Medida, Suporte 24/7 &";
+const headlineHighlight = "APIs para Automação de ERPs.";
+const fullHeadline = `${headlinePrefix} ${headlineHighlight}`;
+
 export const siteConfig = {
   name: "Grupo Ribes",
-  description:
-    "Desenvolvimento de Software Sob Medida do Zero, Suporte 24/7 e Evolução de Sistemas Legado.",
+  // A descrição geral agora herda automaticamente a headline oficial:
+  description: `${fullHeadline} Soluções de engenharia para agilizar processos e garantir estabilidade operacional.`,
+
   navItems: [
     { label: "Serviços", href: "#services" },
-    { label: "Público & Soluções", href: "#solutions" },
+    { label: "Soluções", href: "#solutions" },
     { label: "Modelos", href: "#models" },
-    { label: "Stack & Segurança", href: "#tech" },
+    { label: "Stack", href: "#tech" },
   ],
+
   hero: {
-    headline:
-      "Desenvolvimento de Software Sob Medida do Zero, Suporte 24/7 e Evolução de Sistemas Legado.",
+    headline: {
+      prefix: headlinePrefix,
+      highlight: headlineHighlight,
+      full: fullHeadline,
+    },
     subheadline:
-      "Ajudamos startups a transformar ideias em aplicações de nível corporativo e capacitamos empresas consolidadas com engenharia dedicada e suporte contínuo.",
-    ctaPrimary: "Agendar Auditoria Técnica Gratuita",
-    ctaSecondary: "Explorar Modelos de Parceria",
+      "Construímos sistemas web do zero, conectamos seu ERP a novas ferramentas via APIs dedicadas e cuidamos da sustentação operacional da sua empresa com suporte proativo.",
+    ctaPrimary: "Solicitar Proposta",
+    ctaSecondary: "Conhecer Nossos Serviços",
   },
+
   metrics: [
-    { value: "99.9%", label: "Uptime Garantido em SLA" },
-    { value: "0-to-1", label: "Lançamento Rápido de Produtos" },
-    { value: "< 15 min", label: "Resposta a Incidentes Críticos" },
-    { value: "100%", label: "Código Moderno & Cloud Native" },
+    { value: "99.9%", label: "Disponibilidade com SLA Garantido" },
+    { value: "0 a 1", label: "Criação de Softwares do Zero ao Deploy" },
+    { value: "< 15 min", label: "Resposta Rápida para Chamados Críticos" },
+    { value: "100%", label: "Integrações e APIs Seguras" },
   ],
-  pillars: [
+
+  // Os 3 serviços centralizados aqui (100% DRY):
+  services: [
     {
-      id: "build",
-      title: "BUILD",
-      subtitle: "0-to-1 Product Development",
+      id: "srv-01",
+      title: "Desenvolvimento Sob Medida",
+      subtitle: "Sistemas Web, Portais & Aplicativos",
       description:
-        "Arquitetura, design e engenharia de aplicações web escaláveis, apps mobile e sistemas corporativos customizados desde o zero.",
-      tags: ["Full-Stack", "Mobile", "Microserviços", "MVP Ágil"],
-    },
-    {
-      id: "maintain",
-      title: "MAINTAIN",
-      subtitle: "Constant Support & Uptime",
-      description:
-        "Monitoramento proativo de infraestrutura 24/7, correção de bugs sob SLA rígido, aplicação contínua de patches de segurança e estabilidade operacional.",
-      tags: ["Suporte 24/7", "SLA Rígido", "Backups & DR", "Patching Contínuo"],
-    },
-    {
-      id: "evolve",
-      title: "EVOLVE",
-      subtitle: "Continuous Improvement",
-      description:
-        "Refatoração contínua, otimização de custos de nuvem (AWS/GCP), expansão contínua de funcionalidades e automação de pipelines DevOps (CI/CD).",
+        "Desenhamos e programamos softwares e painéis administrativos do zero, perfeitamente integrados à rotina da sua equipe para eliminar gargalos e planilhas paralelas.",
       tags: [
-        "DevOps / CI-CD",
-        "Otimização de Custos Nuvem",
-        "Modernização Legada",
+        "Sistemas Web",
+        "Painéis Administrativos",
+        "Portais Internos",
+        "MVPs",
+      ],
+    },
+    {
+      id: "srv-02",
+      title: "Suporte & Sustentação 24/7",
+      subtitle: "Garantia de Estabilidade & Continuidade",
+      description:
+        "Monitoramento contínuo, correção imediata de falhas, backups automáticos e atualizações de segurança para sistemas que não podem parar de funcionar.",
+      tags: ["Monitoramento 24/7", "SLA Rápido", "Correção de Bugs", "Backups"],
+    },
+    {
+      id: "srv-03",
+      title: "APIs & Automação de ERPs",
+      subtitle: "Integração de Dados & Eficiência Operacional",
+      description:
+        "Desenvolvemos APIs seguras para integrar seu ERP existente com plataformas web, WhatsApp, emissores de contratos ou bancos de dados externos, acabando com tarefas manuais.",
+      tags: [
+        "Criação de APIs",
+        "Integração de ERPs",
+        "Webhooks",
+        "Automação de Rotinas",
       ],
     },
   ],
