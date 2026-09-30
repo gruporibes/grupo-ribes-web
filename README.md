@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grupo Ribes • Website Oficial
 
-## Getting Started
+> **Plataforma institucional e vitrine técnica do Grupo Ribes.**  
+> Engenharia de software sob medida, sustentação operacional 24/7 e automação de processos corporativos via APIs para ERPs.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Stack Tecnológica
+
+O projeto foi construído utilizando as tecnologias mais modernas e estáveis do ecossistema React/Web:
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, React 19)
+- **Linguagem:** [TypeScript](https://www.typescriptlang.org/) (Tipagem estática estrita)
+- **Estilização:** [Tailwind CSS v4](https://tailwindcss.com/) com tokens semânticos de marca
+- **Ícones:** [Lucide React](https://lucide.dev/)
+- **Qualidade de Código:** ESLint + SonarQube rules (Acessibilidade WCAG e Clean Code)
+
+---
+
+## 🏛️ Arquitetura e Estrutura de Pastas
+
+```text
+grupo-ribes-web/
+├── public/                 # Favicon, assets e logo.svg oficial
+├── src/
+│   ├── app/
+│   │   ├── globals.css     # Design System, variáveis de tema (@theme) e resets
+│   │   ├── layout.tsx      # Layout mestre (Navbar, Meta Tags, Fontes)
+│   │   └── page.tsx        # Homepage (Hero, Serviços, Soluções, Contato)
+│   ├── components/         # Componentes modulares reutilizáveis
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── FlowingLines.tsx    # Fundo vetorial fluido e dinâmico
+│   │   ├── CaseStudies.tsx     # Estudo de caso em destaque
+│   │   ├── EngagementModels.tsx# Modelos comerciais de parceria
+│   │   ├── TechStack.tsx       # Stack e protocolos de segurança
+│   │   └── ContactForm.tsx     # Formulário de qualificação e orçamento
+│   └── config/
+│       └── site.ts         # Single Source of Truth (SSOT) para textos e dados
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌿 Fluxo de Branches (Git Workflow)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para garantir estabilidade e colaboração segura entre a equipe, seguimos uma estratégia simplificada baseada no GitHub Flow:
+main (Produção): Contém apenas o código estável e auditado em produção. Commits diretos são bloqueados.
+develop (Homologação): Branch principal de integração. É onde testamos as novas funcionalidades antes do release oficial.
+feature/nome-da-tarefa: Branches temporárias de trabalho criadas a partir da develop.
+code
+Bash
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Criar uma nova feature a partir da develop atualizada:
 
-## Learn More
+git checkout develop
+git pull
+git checkout -b feature/minha-alteracao
 
-To learn more about Next.js, take a look at the following resources:
+# Após finalizar e testar:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+git checkout develop
+git merge feature/minha-alteracao
+git push origin develop
+🛠️ Como Executar Localmente
+Pré-requisitos
+Node.js 18.17+ ou superior instalado
+Gerenciador de pacotes npm ou pnpm
+Instalação
+code
+Bash
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 1. Clone o repositório
 
-## Deploy on Vercel
+git clone https://github.com/SEU-USUARIO/grupo-ribes-web.git
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# 2. Acesse a pasta do projeto
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+cd grupo-ribes-web
+
+# 3. Instale as dependências
+
+npm install
+
+# 4. Inicie o servidor de desenvolvimento
+npm run dev
+Abra http://localhost:3000 no navegador para visualizar o site.
+Comandos Disponíveis
+npm run dev: Inicia o ambiente de desenvolvimento local.
+npm run build: Compila e valida o projeto para produção.
+npm run lint: Executa a checagem estática de código com o ESLint.
+📬 Contato & Comunicação
+E-mail: contato@gruporibes.com
+WhatsApp: Atendimento direto com a liderança técnica
+Site: gruporibes.com
+© Grupo Ribes. Long-term technical growth engine.
