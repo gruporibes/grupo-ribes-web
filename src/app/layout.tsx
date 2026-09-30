@@ -1,14 +1,18 @@
+import { Navbar } from "@/components/Navbar";
+import { WhatsAppButton } from "@/components/WhatsAppButton"
+import { siteConfig } from "@/config/site";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Grupo Ribes | Custom Software Development & Operational Stability",
-  description:
-    "Long-term technical growth engine for startups and mid-market companies.",
+  title: `${siteConfig.name} | Desenvolvimento de Software & Automação de ERPs`,
+  description: siteConfig.description,
+  icons: {
+    icon: "icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -19,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="scroll-smooth">
       <body
-        className={`${inter.className} min-h-screen bg-zinc-950 text-zinc-100 flex flex-col`}
+        className={`${inter.className} min-h-screen bg-zinc-950 text-zinc-100 flex flex-col antialiased`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
+        <WhatsAppButton />
       </body>
     </html>
   );

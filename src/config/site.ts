@@ -29,7 +29,7 @@ export const siteConfig = {
 
   metrics: [
     { value: "99.9%", label: "Disponibilidade com SLA Garantido" },
-    { value: "0 a 1", label: "Criação de Softwares do Zero ao Deploy" },
+    { value: "0-to-1", label: "Criação de Softwares do Zero ao Deploy" },
     { value: "< 15 min", label: "Resposta Rápida para Chamados Críticos" },
     { value: "100%", label: "Integrações e APIs Seguras" },
   ],
@@ -71,4 +71,13 @@ export const siteConfig = {
       ],
     },
   ],
+  contact: {
+    email: "afonso.gruporibes@gmail.com",
+    phone: "(15) 99607-4400",
+    whatsappNumber: "5515996074400",
+    whatsappMessage:
+      "Olá! Gostaria de conversar com a liderança técnica do Grupo Ribes sobre um projeto.",
+    responseTime: "Resposta em até 2 horas úteis",
+    location: "Sorocaba, SP • Atendimento Nacional",
+  },
 };

@@ -1,7 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Mail,
+  Phone,
+  Clock,
+  MessageSquareShare,
+} from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 interface FormDataState {
   projectType: string;
@@ -23,7 +32,6 @@ interface FormErrors {
 }
 
 export function ContactForm() {
-  // 1. Iniciando todos os campos vazios por padrão
   const [formData, setFormData] = useState<FormDataState>({
     projectType: "",
     stage: "",
@@ -37,7 +45,6 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
 
-  // 2. Lógica de Toggle: se clicar no mesmo valor, desmarca para ""
   const handleToggle = (
     field: "projectType" | "stage" | "budget",
     value: string,
@@ -47,13 +54,11 @@ export function ContactForm() {
       [field]: prev[field] === value ? "" : value,
     }));
 
-    // Limpa o erro do campo assim que o usuário clica
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
   };
 
-  // 3. Validação dos dados antes do envio
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -73,7 +78,6 @@ export function ContactForm() {
       newErrors.name = "Preencha seu nome e cargo.";
     }
 
-    // Validação básica de formato de e-mail corporativo
     const emailRegex = /^[^\s@]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
     if (!formData.email.trim()) {
       newErrors.email = "Preencha seu e-mail corporativo.";
@@ -92,64 +96,139 @@ export function ContactForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const buildSummaryMessage = () => {
+    return (
+      `*Solicitação de Orçamento - Grupo Ribes*\n\n` +
+      `*Nome/Cargo:* ${formData.name}\n` +
+      `*E-mail:* ${formData.email}\n` +
+      `*WhatsApp:* ${formData.phone || "Não informado"}\n` +
+      `*Tipo de Demanda:* ${formData.projectType}\n` +
+      `*Estágio do Projeto:* ${formData.stage}\n` +
+      `*Faixa de Investimento:* ${formData.budget}\n\n` +
+      `*Resumo do Escopo:*\n${formData.summary}`
+    );
+  };
 
-    if (!validateForm()) {
-      return;
-    }
+  // Envio via E-mail
+  const handleSubmitEmail = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
     const subject = encodeURIComponent(
       `Nova Solicitação de Orçamento: ${formData.projectType} - ${formData.name}`,
     );
-    const body = encodeURIComponent(
-      `Nome / Cargo: ${formData.name}\n` +
-        `E-mail: ${formData.email}\n` +
-        `WhatsApp / Telefone: ${formData.phone || "Não informado"}\n` +
-        `Tipo de Demanda: ${formData.projectType}\n` +
-        `Estágio Atual: ${formData.stage}\n` +
-        `Faixa Estimada de Orçamento: ${formData.budget}\n\n` +
-        `Resumo da Demanda:\n${formData.summary}`,
-    );
+    const body = encodeURIComponent(buildSummaryMessage());
 
-    window.location.href = `mailto:contato@gruporibes.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
+  // Envio direto via WhatsApp
+  const handleSubmitWhatsApp = () => {
+    if (!validateForm()) return;
+
+    const text = encodeURIComponent(buildSummaryMessage());
+    window.open(
+      `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${text}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
     setSubmitted(true);
   };
 
   return (
     <section
       id="contact"
-      className="py-24 px-6 max-w-4xl mx-auto border-t border-zinc-800/80"
+      className="py-24 px-6 max-w-5xl mx-auto border-t border-zinc-800/80"
     >
       <div className="text-center mb-12">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-brand">
-          Proposta Comercial
+          Proposta Comercial & Atendimento
         </h2>
         <p className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-white">
           Solicitar Orçamento de Projeto
         </p>
         <p className="mt-3 text-zinc-400 text-sm max-w-2xl mx-auto leading-relaxed">
-          Selecione as características do seu projeto abaixo. Nossa liderança
-          técnica analisará as necessidades e retornará com uma estimativa de
-          prazo, equipe e investimento.
+          Preencha os parâmetros abaixo ou entre em contato diretamente com
+          nossa liderança técnica pelos canais oficiais.
         </p>
       </div>
 
+      {/* Cards de Contato Direto (Para quem prefere não preencher formulário) */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        <a
+          href={`mailto:${siteConfig.contact.email}`}
+          className="p-4 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:border-brand-border transition flex items-center gap-3.5 group"
+        >
+          <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-zinc-950 transition">
+            <Mail className="w-5 h-5" />
+          </div>
+          <div>
+            <span className="text-[11px] font-mono text-zinc-400 block uppercase">
+              E-mail Corporativo
+            </span>
+            <span className="text-sm font-semibold text-white group-hover:text-brand transition">
+              {siteConfig.contact.email}
+            </span>
+          </div>
+        </a>
+
+        <a
+          href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-4 rounded-xl border border-zinc-800 bg-zinc-900/40 hover:border-brand-border transition flex items-center gap-3.5 group"
+        >
+          <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500 group-hover:text-zinc-950 transition">
+            <Phone className="w-5 h-5" />
+          </div>
+          <div>
+            <span className="text-[11px] font-mono text-zinc-400 block uppercase">
+              WhatsApp / Telefone
+            </span>
+            <span className="text-sm font-semibold text-white group-hover:text-brand transition">
+              {siteConfig.contact.phone}
+            </span>
+          </div>
+        </a>
+
+        <div className="p-4 rounded-xl border border-zinc-800 bg-zinc-900/40 flex items-center gap-3.5">
+          <div className="w-10 h-10 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-brand">
+            <Clock className="w-5 h-5" />
+          </div>
+          <div>
+            <span className="text-[11px] font-mono text-zinc-400 block uppercase">
+              Tempo Médio de Retorno
+            </span>
+            <span className="text-xs font-semibold text-zinc-300">
+              {siteConfig.contact.responseTime}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Formulário Principal */}
       <div className="rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 md:p-10 backdrop-blur-sm shadow-xl">
         {submitted ? (
           <div className="text-center py-12">
             <CheckCircle2 className="w-14 h-14 text-brand mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-white">
-              Solicitação preparada!
+              Solicitação pronta para envio!
             </h3>
             <p className="text-sm text-zinc-400 mt-2 max-w-md mx-auto">
-              Seu aplicativo de e-mail foi aberto com todos os dados
-              preenchidos. Basta confirmar o envio e entraremos em contato em
-              até 24 horas úteis.
+              Sua mensagem com todos os parâmetros foi estruturada. Nossa equipe
+              técnica entrará em contato em breve.
             </p>
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              className="mt-6 text-xs text-brand hover:underline font-mono"
+            >
+              &larr; Enviar outra solicitação
+            </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+          <form onSubmit={handleSubmitEmail} className="space-y-8" noValidate>
             {/* Etapa 1: Tipo de Demanda */}
             <div>
               <span className="block text-xs font-mono uppercase text-zinc-400 mb-3 tracking-wider">
@@ -159,7 +238,7 @@ export function ContactForm() {
                 {[
                   "Desenvolvimento do Zero (0-to-1)",
                   "Sustentação & Suporte 24/7",
-                  "Evolução & Modernização",
+                  "APIs & Automação de ERPs",
                 ].map((type) => (
                   <button
                     type="button"
@@ -350,7 +429,7 @@ export function ContactForm() {
                   id="contact-summary"
                   name="summary"
                   rows={3}
-                  placeholder="Conte brevemente sobre o projeto: funcionalidades essenciais, integrações necessárias ou problemas operacionais atuais..."
+                  placeholder="Conte brevemente sobre o projeto: funcionalidades essenciais, integrações com ERP necessárias ou problemas operacionais atuais..."
                   value={formData.summary}
                   onChange={(e) => {
                     setFormData({ ...formData, summary: e.target.value });
@@ -371,13 +450,25 @@ export function ContactForm() {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 rounded-lg bg-brand hover:bg-brand-hover text-zinc-950 font-bold text-sm transition flex items-center justify-center gap-2 glow-brand"
-            >
-              <span>Enviar Solicitação de Orçamento</span>
-              <Send className="w-4 h-4" />
-            </button>
+            {/* Botões Duplos de Envio: E-mail ou WhatsApp */}
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+              <button
+                type="submit"
+                className="w-full sm:flex-1 py-4 rounded-lg bg-brand hover:bg-brand-hover text-zinc-950 font-bold text-sm transition flex items-center justify-center gap-2 glow-brand cursor-pointer"
+              >
+                <span>Enviar por E-mail</span>
+                <Send className="w-4 h-4" />
+              </button>
+
+              <button
+                type="button"
+                onClick={handleSubmitWhatsApp}
+                className="w-full sm:flex-1 py-4 rounded-lg bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-emerald-500/50 text-white font-bold text-sm transition flex items-center justify-center gap-2 cursor-pointer group"
+              >
+                <MessageSquareShare className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+                <span>Enviar pelo WhatsApp</span>
+              </button>
+            </div>
           </form>
         )}
       </div>
