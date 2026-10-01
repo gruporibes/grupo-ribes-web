@@ -11,7 +11,16 @@ export const metadata: Metadata = {
   title: `${siteConfig.name} | Desenvolvimento de Software & Automação de ERPs`,
   description: siteConfig.description,
   icons: {
-    icon: "icon.svg",
+    icon: "/logo.svg",
+  },
+  // Adiciona a prévia para WhatsApp, LinkedIn e Google:
+  openGraph: {
+    title: `${siteConfig.name} | Tecnologia Sob Medida`,
+    description: siteConfig.description,
+    url: "https://gruporibes.com",
+    siteName: siteConfig.name,
+    locale: "pt_BR",
+    type: "website",
   },
 };
 
