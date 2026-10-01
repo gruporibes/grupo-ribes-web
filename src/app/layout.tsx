@@ -8,19 +8,35 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // 1. Coloque a URL oficial que a Vercel gerou para você (sem barra no final):
+  metadataBase: new URL("https://SEU-PROJETO.vercel.app"),
+
   title: `${siteConfig.name} | Desenvolvimento de Software & Automação de ERPs`,
   description: siteConfig.description,
   icons: {
-    icon: "/logo.svg",
+    icon: "/icon.svg",
   },
-  // Adiciona a prévia para WhatsApp, LinkedIn e Google:
   openGraph: {
     title: `${siteConfig.name} | Tecnologia Sob Medida`,
     description: siteConfig.description,
-    url: "https://gruporibes.com",
+    url: "https://https://grupo-ribes-web.vercel.app",
     siteName: siteConfig.name,
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png", // Busca direto em public/og-image.png
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | Tecnologia Sob Medida`,
+    description: siteConfig.description,
+    images: ["/og-image.png"],
   },
 };
 
