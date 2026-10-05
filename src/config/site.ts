@@ -1,6 +1,8 @@
 // 1. Headline dividida para permitir o destaque visual sem duplicar texto
-const headlinePrefix = "Desenvolvimento de Software Sob Medida, Suporte 24/7 &";
-const headlineHighlight = "APIs para Automação de ERPs.";
+const headlinePrefix =
+  "Softwares sob medida e ";
+const headlineHighlight =
+  "automações que eliminam o trabalho manual da sua operação.";
 const fullHeadline = `${headlinePrefix} ${headlineHighlight}`;
 
 export const siteConfig = {
@@ -12,7 +14,7 @@ export const siteConfig = {
     { label: "Serviços", href: "#services" },
     { label: "Soluções", href: "#solutions" },
     { label: "Modelos", href: "#models" },
-    { label: "Stack", href: "#tech" },
+    { label: "Tecnologias", href: "#tech" },
   ],
 
   hero: {
@@ -23,13 +25,13 @@ export const siteConfig = {
     },
     subheadline:
       "Construímos sistemas web do zero, conectamos seu ERP a novas ferramentas via APIs dedicadas e cuidamos da sustentação operacional da sua empresa com suporte proativo.",
-    ctaPrimary: "Solicitar Proposta",
+    ctaPrimary: "Falar com um Especialista",
     ctaSecondary: "Conhecer Nossos Serviços",
   },
 
   metrics: [
     { value: "99.9%", label: "Disponibilidade com SLA Garantido" },
-    { value: "0-to-1", label: "Criação de Softwares do Zero ao Deploy" },
+    { value: "Do Zero", label: "Criação de Softwares do Zero ao Deploy" },
     { value: "< 15 min", label: "Resposta Rápida para Chamados Críticos" },
     { value: "100%", label: "Integrações e APIs Seguras" },
   ],
@@ -51,11 +53,11 @@ export const siteConfig = {
     },
     {
       id: "srv-02",
-      title: "Suporte & Sustentação 24/7",
+      title: "Suporte & Sustentação",
       subtitle: "Garantia de Estabilidade & Continuidade",
       description:
         "Monitoramento contínuo, correção imediata de falhas, backups automáticos e atualizações de segurança para sistemas que não podem parar de funcionar.",
-      tags: ["Monitoramento 24/7", "SLA Rápido", "Correção de Bugs", "Backups"],
+      tags: ["Monitoramento", "SLA Rápido", "Correção de Bugs", "Backups"],
     },
     {
       id: "srv-03",

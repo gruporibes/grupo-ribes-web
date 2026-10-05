@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 // Ícones com proporção ampliada (w-4 h-4) e cores oficiais de cada tecnologia
-function TechLogo({ name }: { name: string }) {
+function TechLogo({ name }: Readonly<{ name: string }>) {
   const iconClass =
     "w-4 h-4 shrink-0 transition-transform group-hover:scale-110";
 

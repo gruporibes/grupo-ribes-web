@@ -48,7 +48,7 @@ export function CaseStudies() {
           {/* Cenário */}
           <div className="p-5 rounded-xl bg-zinc-950/60 border border-zinc-800/60 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono text-zinc-400 font-bold uppercase tracking-wider block mb-2">
+              <span className="text-xs font-mono text-brand font-bold uppercase tracking-wider block mb-2">
                 01. O Cenário & Demanda
               </span>
               <p className="text-sm text-zinc-300 leading-relaxed">
