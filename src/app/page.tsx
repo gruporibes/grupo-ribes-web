@@ -10,10 +10,10 @@ import {
 } from "lucide-react";
 import { FlowingLines } from "@/components/FlowingLines";
 import { EngagementModels } from "@/components/EngagementModels";
-import { TechStack } from "@/components/TechStack";
 import { CaseStudies } from "@/components/CaseStudies";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
+import { TechStack } from "@/components/TechStack";
 
 // Ícones dinâmicos para cada um dos 3 serviços
 const serviceIcons = [Layers, Server, Cpu];
