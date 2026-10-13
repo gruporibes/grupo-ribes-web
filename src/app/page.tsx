@@ -14,6 +14,7 @@ import { CaseStudies } from "@/components/CaseStudies";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { TechStack } from "@/components/TechStack";
+import { ServicesCarousel } from "@/components/ServicesCarousel";
 
 // Ícones dinâmicos para cada um dos 3 serviços
 const serviceIcons = [Layers, Server, Cpu];
@@ -74,58 +75,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. NOSSOS SERVIÇOS (Iterando sobre siteConfig.services) */}
-      <section id="services" className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-brand">
-            O Que Fazemos
-          </h2>
-          <p className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-white">
-            Serviços de tecnologia para cada fase da sua empresa
-          </p>
-          <p className="mt-4 text-zinc-400 text-sm md:text-base">
-            Da criação de sistemas sob medida à automação de processos manuais
-            via APIs.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {siteConfig.services.map((service, index) => {
-            const Icon = serviceIcons[index % serviceIcons.length];
-            return (
-              <div
-                key={service.id}
-                className="relative group rounded-xl border border-zinc-800 bg-zinc-900/40 p-8 hover:border-brand-border transition duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-lg bg-brand-muted border border-brand-border flex items-center justify-center text-brand mb-6">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mt-1 mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-xs font-medium text-zinc-400 mb-4 font-mono">
-                    {service.subtitle}
-                  </p>
-                  <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-800/80">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs px-2.5 py-1 rounded bg-zinc-800/60 text-zinc-300 font-mono"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      {/* 3. SERVIÇOS EM CARROSSEL DINÂMICO */}
+      <ServicesCarousel />
 
       {/* 4. ROTEAMENTO DE SOLUÇÕES */}
       <section
