@@ -4,9 +4,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Zap,
-  Layers,
-  Server,
-  Cpu,
 } from "lucide-react";
 import { FlowingLines } from "@/components/FlowingLines";
 import { EngagementModels } from "@/components/EngagementModels";
@@ -17,8 +14,6 @@ import { TechStack } from "@/components/TechStack";
 import { ServicesCarousel } from "@/components/ServicesCarousel";
 
 // Ícones dinâmicos para cada um dos 3 serviços
-const serviceIcons = [Layers, Server, Cpu];
-
 export default function HomePage() {
   return (
     <div className="relative min-h-screen text-zinc-100 selection:bg-brand selection:text-zinc-950 overflow-hidden">
