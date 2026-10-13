@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  grupo-ribes-dev:
+    build: .
+    container_name: grupo-ribes-web-dev
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
