@@ -12,10 +12,15 @@
   color-scheme: dark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #070709;
   color: #f4f4f5;
   font-feature-settings: "rlig" 1, "calt" 1;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -23,7 +28,7 @@ body {
   color: #070709;
 }
 
-/* Animações de flutuação líquida lenta */
+/* Animações de apoio */
 @keyframes floatSlow {
   0%, 100% {
     transform: translate(0px, 0px) scale(1);
